@@ -46,6 +46,8 @@ def parallel_procedure(stage,normal,disease,title,ref,network,sd_mean,j):
         if count==0:
             continue
         pcc_out/=count
+        if pcc_out==0:
+            continue
         ci[p]=[sd*pcc_in/pcc_out,sd,pcc_in,pcc_out]
 
     ci=sorted(ci.items(),key=lambda d:d[1][0],reverse=True)
